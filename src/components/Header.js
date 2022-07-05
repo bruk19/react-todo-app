@@ -8,7 +8,8 @@ const Header = () => {
         <Header style={headers}>
           <h1>
             style={{
-                fontsize: '15px',
+                fontSize: '6rem',
+                fontWeight: '600',
             }}
           </h1>
         </Header>
