@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './TodoItem.css';
 
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);

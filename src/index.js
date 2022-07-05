@@ -1,15 +1,26 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import './App.css';
-import TodoContainer from "./components/TodoContainer"
+import TodoContainer from './functionBased/components/TodoContainer';
+import './src/App.css';
 
-const element = <h1>Hello from Create React App</h1>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-ReactDOM.render(<TodoContainer />, document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    <TodoContainer />
-  </React.StrictMode>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<TodoContainer />} />
+        <Route path="About" element={<About />}>
+          <Route path=":abt" element={<SinglePage />} />
+        </Route>
+        <Route path="*" element={<NotMatch />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
 );
-
