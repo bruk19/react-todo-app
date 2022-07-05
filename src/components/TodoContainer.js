@@ -1,71 +1,64 @@
-import React from "react"
-class TodoContainer extends React.Component {
-   state = {
-    todos: [
-      {
-        id: 1,
-        title: 'Setup development environment',
-        completed: true,
-      },
-      {
-        id: 2,
-        title: 'Develop website and add content',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Deploy to live server',
-        completed: false,
-      },
-    ],
-  };
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import Header from './Header';
+import TodosList from './TodosList';
+import InputTodo from './InputTodo';
 
-  delTodo = (id) => {
-    this.setState({
-      todos: [...this.state.todos.filter((todo) => todo.id !== id)],
-    });
-  };
-
-  handleChange = (id) => {
-    this.setState((prevState) => ({
-      todos: prevState.todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      }),
+const TodoContainer = () => {
+  const [todos, setTodos] = useState([]);
+  const handleChange = (id) => {
+    setTodos((prevState) => prevState.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
     }));
   };
 
-  addTodoItem = (title) => {
+  const delTodo = (id) => {
+    setTodos([
+      ...todos.filter((todo) => todo.id !== id),
+    ]);
+  };
+
+  const addTodoItem = (title) => {
     const newTodo = {
-      id: 1(),
+      id: uuidv4(),
       title,
       completed: false,
     };
-    this.setState({
-      todos: [...this.state.todos, newTodo],
-    });
+    setTodos([...todos, newTodo]);
   };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="inner">
-          <Header />
-          <InputTodo addTodoProps={this.addTodoItem} />
-
-          <TodosList
-            todos={this.state.todos}
-            handleChangeProps={this.handleChange}
-            deleteTodoProps={this.delTodo}
-          />
-        </div>
-      </div>
+  const setUpdate = (updatedTitle, id) => {
+    setTodos(
+      todos.map((todo) => {
+        const task = todo;
+        if (task.id === id) {
+          task.title = updatedTitle;
+        }
+        return todo;
+      }),
     );
-  }
-}
-export default TodoContainer
+  };
+
+  return (
+    <div className="container">
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoProps={addTodoItem} />
+        <TodosList
+          todos={todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={delTodo}
+          setUpdate={setUpdate}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default TodoContainer;
