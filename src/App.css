@@ -26,3 +26,16 @@ input {
   font-size: 1.5rem;
   border-radius: 5px;
 }
+
+.todo-list {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 30%;
+  max-height: 50rem;
+  overflow-y: auto;
+  margin: 10px auto;
+  font-size: 1.5rem;
+  box-shadow: 0 0 2px 1px black;
+  border-radius: 10px;
+}

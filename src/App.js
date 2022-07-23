@@ -1,12 +1,14 @@
 import React from 'react'
 import TodoHeader from './components/TodoHeader'
 import './App.css'
-import TodoInput from './components/TdoInput'
+import TdoInput from './components/TdoInput'
+import TodoList from './components/TodoList'
 function App() {
   return (
     <main>
       <TodoHeader />
-      <TodoInput />
+      <TdoInput />
+      <TodoList />
     </main>
   )
 }
