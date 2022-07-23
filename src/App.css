@@ -30,7 +30,7 @@ input {
 .todo-list {
   display: flex;
   height: auto;
-  width: 30%;
+  width: 300px;
   max-height: 50rem;
   overflow-y: auto;
   margin: 10px auto;
