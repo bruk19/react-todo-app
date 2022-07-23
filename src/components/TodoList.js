@@ -1,8 +1,11 @@
 import React from 'react'
+import TodoItem from './TodoItem'
 
 function TodoList() {
   return (
-    <div className='todo-list'>TodoList</div>
+    <div className='todo-list'>
+      <TodoItem />
+    </div>
   )
 }
 
