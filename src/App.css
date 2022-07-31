@@ -36,12 +36,12 @@ input {
   margin: 10px auto;
   font-size: 1.5rem;
   box-shadow: 0 0 2px 1px black;
-  border-radius: 10px;
+  border-radius: 11px;
 }
 
 .todo-item {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2px 30px;
+  padding: 3px 30px;
 }
