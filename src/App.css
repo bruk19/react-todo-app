@@ -7,7 +7,7 @@
 .todo-tit {
   margin-top: 20vh;
   width: 100%;
-  color: red;
+  color: rgb(155, 11, 11);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ input {
   width: 30%;
   margin: 10px;
   padding: 9px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   border-radius: 5px;
 }
 
@@ -34,9 +34,9 @@ input {
   max-height: 50rem;
   overflow-y: auto;
   margin: 10px auto;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   box-shadow: 0 0 2px 1px black;
-  border-radius: 11px;
+  border-radius: 10px;
 }
 
 .todo-item {
