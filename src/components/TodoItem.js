@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import { TodoContext } from '../context/TodContext';
 function TodoItem({ todo = { id:'', text:''}}) {
   const {deleteTodo} = useContext(TodoContext);
+  
   return (
     <div className='todo-item'>
         <p className='tod-item-text'>{todo.text}</p>
